@@ -5,7 +5,18 @@ services:
       dockerfile: Dockerfile
     working_dir: /app
     command: python /main.py
+    restart: always
+    depends_on:
+      db:
+        condition: service_healthy
   voice_box:
     image: voicevox/voicevox_engine:cpu-latest
     ports:
       - '50021:50021'
+    restart: always
+  db:
+    image: postgres:17-bullseye
+    environment:
+      POSTGRES_USER: bot_user
+      POSTGRES_PASSWORD: bot_pass
+      restart: always
