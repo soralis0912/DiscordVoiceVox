@@ -20,3 +20,8 @@ services:
       POSTGRES_USER: bot_user
       POSTGRES_PASSWORD: bot_pass
       restart: always
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
