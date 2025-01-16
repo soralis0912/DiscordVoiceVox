@@ -1,4 +1,4 @@
-ARG VARIANT=3.13-bullseye
+ARG VARIANT=3.11-bullseye
 FROM python:${VARIANT}
 
 COPY ./ /app/
