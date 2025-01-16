@@ -4,7 +4,7 @@ services:
       context: ./
       dockerfile: Dockerfile
     working_dir: /app
-    command: python /main.py
+    command: python /app/main.py
     restart: always
     depends_on:
       db:
